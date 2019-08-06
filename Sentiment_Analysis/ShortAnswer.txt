@@ -1,0 +1,35 @@
+1.  Looking at the top errors printed by get_top_misclassified, name two ways you 
+    would modify your classifier to improve accuracy (it could be features, 
+    tokenization, or something else.)
+Answer - 
+    We can modify the classifier to improve the accuracy using below methods :-
+    a)  By improving the tokenization method using NLTK library. 
+        In this case I tried removing all the punctuation, HTML characters.
+        Moreover also implemented word normalization using Stemming and Lemmatization.
+
+    b)  Taking exhaustive list of positive and negative words and prepare lexicon feature. 
+        In this case I used the AFINN list for determining the positive and negative words.
+        Here I tried summing up the actual value and just adding the score if word is in AFINN.
+        Lastly the total pos and neg value of feat for that token list is divided by the 
+        total no of positive or negative words.
+
+2. Implement one of the above methods. How did it affect the results?
+Answer -
+    I have done the below modifications to tune the accuracy.
+    a)  Updated the tokenizer to remove all the special characters with no_space. All the
+        HTML characters with a space. Moreover also implemented word normalization 
+        using Stemming and Lemmatization.
+    b)  Updated the lexicon_feature method. It is now validating the positive and negative
+        term from AFINN dictionary. Once for a set of token, the sum of positive and negative
+        is calculated, I take the average and update the feat.
+    c)  I have also modified the LogisticRegression to MultinomialNB.
+    The overall configuration gives the training accuracy of "0.7725" and
+    testing accuracy of "0.7625".
+    
+    Initially the model was just checking the pos and neg word from small list. Now using AFINN 
+    I am taking average of values which is not giving a biased score as in previous scenario.
+    Like if there are more positive words with higher values, it will give a much overall higher 
+    score thus leading to a biased score.
+
+    Still the model is not predicting correctly as even if the review is positive, the negative words 
+    might lead to just an opposite result. For example the misclassified explains it.

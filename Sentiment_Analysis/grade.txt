@@ -1,0 +1,32 @@
+Grade: 47.00/50.00
+
+1 Deduction(s):
+
+--------------
+#1: 3.00 points
+Failing test: test_classify_2: 
+        @points=3
+        
+Traceback (most recent call last):
+  File "../assignments-sol/a2/a2_test.py", line 139, in test_classify_2
+    self.assertEqual(len(results), 12)
+AssertionError: 16 != 12
+
+source:
+    def test_classify_2(self):
+         """
+         @points=3
+         """
+         docs = np.array(["Isn't this movie great?", "Horrible, horrible movie",
+                          "Isn't this movie great?", "Horrible, horrible movie",
+                          'i LOVE this great movie', 'i LOVE this wonderful movie',
+                          'i hate this bad movie', 'i hate this horrible movie'])
+         labels = np.array([1, 0, 1, 0, 1, 1, 0, 0])
+         feature_fns = [token_features]
+         feature_fns = [token_features, lexicon_features]
+         results = eval_all_combinations(docs, labels, [True, False],
+                                         feature_fns,
+                                         [2,3])
+         self.assertEqual(len(results), 12)
+--------------
+

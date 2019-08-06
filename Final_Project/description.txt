@@ -1,0 +1,99 @@
+
+*******************
+----DESCRIPTION----
+*******************
+
+Introduction:-
+______________
+
+For this project I have first collected set of users from different backgrounds like political, Singing, Comedian & Companies CEO's. Twitter API has been used for data collection. The same set of been used further for identifying communities using their friends. More over same set of users have been used for collecting the tweets for classification.  To ensure the connectivity of the network, I have selected all the users from United States.
+
+Note :-  Manually labeled files have been used for training and testing.
+
+List of users that have been used for the project are :-
+['jimmyfallon', 'britneyspears', 'TheEllenShow', 'ladygaga', 'BarackObama', 'dmataconis', 'satyanadella', 'sundarpichai']
+
+Files:-
+_______
+
+**** collect.py ****
+1)  Here the above users have been used to get users details using Twitter API.
+2)  Next we fetched the friends of those user and added as key "friends" in same dictionary.
+    As for simplicity and further ease of computations, I have saved only 2000 and less friends for each users.
+3)  Now, graph is created with node as the user and friend relation as edge.
+    So, just for the simplicity in the graph, I have chosen less users.
+    The graph file is saved as "network.png". 
+4)  All the related files like users and graph information have been saved into pickle file.
+    Users info saved to "./users/users.pkl"
+    Graph info saved to "./graph.pkl"
+    Apart from that, I am also saving the users information as separate text file under "./users" base on their screen names.
+5)  Lastly, I have collected tweets for all users. As the tweets API also has limit of 200 tweets
+    per request so I have pulled only 100 tweets for each users.
+    Then, I have separated tweets as training and testing data.
+    First 50 tweets have been used for training and next 50 for testing from each user.
+    Lastly collated all the tweets information for training into a single excel file and wrote to "./tweets/train/tweets.xlsx" and for testing to "./tweets/test/tweets.xlsx".
+    Also I have saved all the collected users tweets into text file for viewing purpose which is saved into directory "./tweets/train" and "./tweets/test".
+    In total I have 400 training and testing data each.
+
+**** cluster.py ****
+1)  For clustering purpose I have read the pickle file saved at "./graph.pkl".
+    Created a sub graph with node degree > 1 and provided the sub-graph for community detection.
+2)  For community detection, I have used Grivan Newman algorithm using edge betweenness.
+    For Girvan Newman, I am checking for number of clusters < 5 i.e. identifying 5 clusters.
+    Until than, edge betweenness is calculated using inbuilt function "nx.edge_betweenness_centrality".
+    For each calculation, the maximum betweenness is fetched and all the edges betweenness value matching with that maximum value is deleted from the graph.
+    The steps is repeated until I get clusters around 5.
+3) Lastly the clusters are saved as pickle file "./clusters.pkl".
+
+**** classify.py ****
+1)  For classification, all manually labelled data have been used both for training and
+    testing purposes.
+2)  For classification, I have read the data from excel file and separated as tweets and its
+    labeled value in same order as tweets.
+3)  For identifying features, tokenization is done where all the punctuation and some HTML 
+    characters have been removed and list of tokens are returned.
+4)  Some of the features have been used for training the model are "token_features",
+    "token_pair_features" and "lexicon_features" (which used AFINN library for evaluation positive
+    and negative token values).
+5)  For finding the best configuration for training, "eval_all_combinations" method is used for
+    identifying best configuration with highest accuracy.
+    The same configuration is used for training and testing.
+6)  After getting the number of instances per class, the results are saved to a pickle file.
+    -   "./misclassified_list.pkl" for misclassified documents.
+    -   "./negative_predicted_list.pkl" for negative predicted documents matching truth labels.
+    -   "./positive_predicted_list.pkl" for positive predicted documents matching truth labels.
+__TUNING__
+1)  For tuning the model to improve accuracy, I have used NLTK library for removing "stop words", 
+    "simple stemmer" and "simple lancaster".
+2)  For tuning I have also tried looking at some of the misclassified docs and tried re-labelling.
+
+**** summarize.py ****
+1)  This python file is used for summarizing all the results obtains from each files.
+    -   Users information was displayed using  "users.pkl".
+    -   Communities information displayed using "cluster.pkl".
+    -   Instance information displayed using "misclassified_list", "negative_predicted_list" 
+        and "positive_predicted_list" pickle files at root location.
+2)  All the information after reading from pickle files are saved to "summary.txt".
+
+Conclusion :-
+_____________
+
+**** Community Detection ****
+
+As for community detection, I have used users from different domains i.e. political, Singing, Comedian & Companies CEO's. As per "network.png" graph, all the nodes are connected. As per seeing the graph, I was expecting that the graph should be partitioned based on the domains. So After running the Girvan Newman algorithm, I got four clusters mentioned below:-
+1) Cluster 1 - "jimmyfallon, TheEllenShow and dmataconis". - All Comedians except dmataconis who is a politician.
+2) Cluster 2 - "britneyspears and ladygaga" - Both are singers and their friends
+3) Cluster 3 - "satyanadella and sundarpichai" -  Both are CEOS and their friends.
+4) cluster 4 - "BarackObama" - politician
+From the above communities, all the groups are as expected except the "dmataconis" who is a politician but comes under the community of comedians. This is happened because large number of his friends are also friends with "jimmyfallon and TheEllenShow" and they might like comedians and thus are in clusters of comedians.
+
+**** Classification ****
+
+In case of classification, tokenization plays a important role in improving accuracy in my case. As all the tweets contains a lot of punctuation and stop words. so removing these occurrence, the accuracy of my model improved. As I have collected tweets from some popular users so my collection of tweets contains a very less numbers of negative tweets and more no of positive tweets. This imbalance results in less accurate negative coefficients. For my scenarios all the 400 training and 400 testing tweets have been labelled manually.
+Just for comparison purpose, I tried labelling the tweets using external library TextBlob, and used it for training. This process reduced the accuracy to around 65% approx and produced lots of noise.
+So my initial round of manual labelling process was not so perfect and that gave me accuracy around 75%. When I verified my labels, because of some inconsistencies, I did some mistakes. I updated the labels and my accuracy shoots upto 80% approx.
+I also tried checking for the coefficients of the misclassified documents and tried rectifying for better accuracy.
+You can also find some misclassified documents with higher accuracy because of less negative documents (tweets).
+So despite all above, I think my classifier works pretty well and you can able to see sentiments predicted according to their actual labels.
+The final testing accuracy that my code is giving is around 0.8025.
+

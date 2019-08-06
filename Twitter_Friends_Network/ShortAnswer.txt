@@ -1,0 +1,76 @@
+Enter your responses inline below and push this file to your private GitHub
+repository.
+
+
+1. Assume I plan to use the friend_overlap function above to quantify the
+similarity of two users. E.g., because 238 is larger than 1, I conclude that
+Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald
+Trump.
+
+How is this approach misleading? How might you fix it?
+
+Showing only 2 common friends('VP' & 'White House'), Hillary Clinton and Donald Trump data shows they are rivals but when we see data for Jill Stein and Gary Johnson having 236 common friends contradicts that they are rivals.
+Actually, Jill Stein & Gary Johnson, one from the Green Party's and other from Libertarian Party were nominee for President of the United States in the 2012 and 2016 elections.
+It means they were rivals and having large number common friends just says opposite.
+To fix this we can consider other approach, where we should not just consider the common friends but should also consider the total no of friends with friends overlap(common friends).
+So with this approach, having large common friends suppose around 100 , with total friends around 5000 or more is similar to having 2 common friends from total 45 friends.
+
+
+
+
+2. Looking at the output of your followed_by_hillary_and_donald function, why
+do you think this user is followed by both Hilary Clinton and Donald Trump,
+who are rivals? Do some web searches to see if you can find out more
+information.
+
+Users followed by both Hilary Clinton and Donald Trump are :-
+['VP', 'WhiteHouse']
+It is very much clear that both Hilary Clinton and Donald Trump are rivals and the common user followed by them is valid. 
+Donald Trump follows VP (Vice President) because he is the president of United States and WhiteHouse as it is the official residence and workplace of the President of the United States. 
+Hilary Clinton follows both because she was secretary of state from 2009 to 2013 and in 2016 she was the nominee for President of United States.
+VP is the general account handled by any the current Vice President of US and currently being
+handled by Mike Pence.
+
+
+
+
+3. There is a big difference in how many accounts each candidate follows (Gary
+Johnson follows over 3K accounts, while Donald Trump follows less than
+50). Why do you think this is? How might that affect our analysis?
+
+Gary Johnson follows over 3K accounts, while Donald Trump follows less than 50 because, he is currently not accepted by most of the other candidates because he was chosen as the president of US where maximum candidates was not expecting this to happen. Moreover he is also disliked by many because of his wrong decisions.
+Yes, this huge difference will actually affect our analysis. As in general, Donald Trump is the 45th president of US and logically he should have more friends than others candidates. So any of our analysis on the number of friends will be just opposite of what we expects.
+
+
+
+
+4. The follower graph we've collected is incomplete. To expand it, we would
+have to also collect the list of accounts followed by each of the
+friends. That is, for each user X that Donald Trump follows, we would have to
+also collect all the users that X follows. Assuming we again use the API call
+https://dev.twitter.com/rest/reference/get/friends/ids, how many requests will
+we have to make? Given how Twitter does rate limiting
+(https://dev.twitter.com/rest/public/rate-limiting), approximately how many
+minutes will it take to collect this data?
+
+In this scenario, considering Donald Trump, details mentioned below :-
+Initial Call - Fetching all user details list using (users/lookup) (1 - API call)
+Fetching the list of Friends for all users (friends/ids)  (1+1+1+1 - API call)
+Fetching accounts followed by all 45 Friends using (friends/ids) (45 - API call minimum) 
+** Considering, If for all friends->friends are less then 5000
+Similarly for other,
+DrJillStein - 1644
+GovGaryJohnson - 3511 
+HillaryClinton - 784
+
+Total Friends including common - 5984
+Total Unique friends - 5715
+
+Total API call - 1+1+1+1+5715 = 5719
+Since, Twitter rate limit is 15 requests per 15 mins for friends/ids and 900 requestd per 15 mins for users/lookup. 
+friends/ids - Total API calls - 5719 -  - Minimum (15*381 + 4) = 5719 minutes. (** Considering, If for all friends->friends are less then 5000)
+users/lookup - Total API calls - 1 - 15 mins  - It is different API and can work in parallel.
+Hence, total requests that will be made are (5719+1) and approximately for completing all the requests 5719 minutes are required.
+
+
+

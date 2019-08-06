@@ -1,0 +1,141 @@
+
+------------------------------------------------
+
+Number of users collected :-
+____________________________
+BarackObama
+TheEllenShow
+britneyspears
+dmataconis
+jimmyfallon
+ladygaga
+satyanadella
+sundarpichai
+
+No of friends per user:-
+________________________
+BarackObama 	614491
+TheEllenShow 	33001
+britneyspears 	382291
+dmataconis 	8380
+jimmyfallon 	8841
+ladygaga 	124998
+satyanadella 	229
+sundarpichai 	332
+------------------------------------------------
+
+------------------------------------------------
+
+Number of tweets collected for training:-
+___________________________________________
+BarackObama 	50
+TheEllenShow 	50
+britneyspears 	50
+dmataconis 	50
+jimmyfallon 	50
+ladygaga 	50
+satyanadella 	50
+sundarpichai 	50
+
+Number of tweets collected for testing:-
+___________________________________________
+BarackObama 	50
+TheEllenShow 	50
+britneyspears 	50
+dmataconis 	50
+jimmyfallon 	50
+ladygaga 	50
+satyanadella 	50
+sundarpichai 	50
+------------------------------------------------
+------------------------------------------------
+Number of communities discovered length >1:	4
+Average number of users per community:	94.5
+
+Users per communities:-
+_________________________
+
+[731132367058968576, 718495181914316801, 965015705123930114, 56481539, 942878337806032901, 53933574, 965266179836252161, 189362860, 460693003, 105119490, 25390350, 'dmataconis', 27706753, 16213013, 14652182, 245992215, 65034521, 1379587099, 121817564, 19119809, 24382752, 169963553, 18396706, 335141638, 32726973, 227837742, 346353711, 866953267, 256883252, 216444984, 36248824, 387323487, 3154252605, 1915033663, 31644736, 2204034272, 276575042, 425582603, 272250951, 360971506, 964032914626359296, 39364684, 6519522, 571083342, 2987922767, 2573480784, 44794040, 502281810, 49698134, 97837399, 499073990, 135019364, 3179977818, 774407512598704128, 74755679, 78525538, 39000115, 14062180, 1173108078, 976939127860969472, 46597488, 287435891, 4274372981, 872374136, 1917826916, 833612154, 907759856429527040, 335534204, 3061977469, 46769281, 428377986, 20567939, 580097412, 965231053119148032, 15945351, 774357990711316481, 357606935, 913812620, 214201922, 131948686, 5695632, 89084561, 31126587, 260114837, 8892822, 11744152, 20710809, 602993818, 56223278, 35031708, 37590426, 86141342, 3111553475, 234552226, 84279963, 738080573365702657, 49110693, 80944550, 2557037323, 30354991, 171682730, 2758342215, 73206956, 17152685, 144374958, 278072240, 241382835, 468896332, 19602869, 366010246, 863405239, 163755960, 107436986, 706933895502163968, 101798589, 143192279, 'TheEllenShow', 24702915, 1852644804, 342327238, 27860681, 38480601, 1888149452, 14840013, 342863309, 2332431056, 138166008, 974384082, 348217747, 11856342, 251496825, 2717254872, 47216804, 248917209, 'jimmyfallon', 259540958, 130496027, 271129313, 226222147, 149103331, 21356261, 1128886760, 51131004, 3070030827, 744334658, 78366205, 18048496, 25098482, 158314798, 21247989, 300392950, 1330457336, 353029369, 586198217, 29403387, 167155452, 20322986, 763440894, 19362299]
+
+[80185344, 727158376115916800, 543657475, 2750579201, 77504008, 73992972, 1221139214, 45709328, 184910040, 221610773, 48100887, 1649099546, 1516479518, 126632581, 1598234660, 119829799, 355307031, 174593833, 89234220, 16234029, 403537454, 177638447, 10228272, 34164018, 21312307, 74591797, 31339831, 268439864, 2734624057, 34036028, 182919485, 161211454, 1333741116, 145314369, 187584595, 134430275, 65454660, 2278008246, 27488071, 32443720, 344184588, 633194807, 103012173, 266106702, 1555383122, 303944787, 1622444628, 419766613, 136361303, 1972793688, 14417243, 2676872542, 714027536, 871685732, 42998209, 209708391, 16807528, 2257966140, 28221296, 3253939825, 835026290, 2350487924, 362476661, 85452649, 200163448, 332638587, 19671932, 457554412, 1465662080, 241747585, 14055301, 75892358, 171685697, 1470947208, 316756361, 20539531, 764800147, 1539517332, 563746454, 73755799, 1701954884, 15253147, 173677727, 1692445040, 578991013, 278662460, 46576295, 3303293865, 1003167404, 2405554861, 'ladygaga', 478658224, 2299867314, 704350131, 'britneyspears', 150120631, 2427750644, 124003770, 336450762, 14436030, 246481013, 386194881, 1020383864, 1128218821, 626455457, 545485769, 520901834, 19811019, 177338829, 2401980110, 545253327, 522728144, 15820664, 34047189, 365522390, 20793816, 91589156, 98765275, 1137646561, 411159781, 755113, 1649548520, 222685161, 14089195, 201407468, 126021945, 20431187, 34316788, 1339835893, 3297843703]
+
+[818876014390603776, 822215679726100480, 'sundarpichai', 37570179, 166739404, 989, 12, 914061, 42562446, 1636590253, 74130577, 14647570, 42826771, 5746452, 5120691, 316389142, 46335511, 15856435, 11348282, 14677919, 16242081, 409486555, 575658149, 15076390, 44196397, 16228398, 17595439, 1093090866, 2529971, 3245142196, 10078, 161801527, 46220856, 3080761, 24166202, 'satyanadella', 586, 5763262, 18132032, 58560480, 858051, 937499232, 1605, 2384071, 22843337, 19658826, 17503180, 1394399438, 816653, 427900496, 15828408, 15241557, 19040598, 1228176728, 20348377, 14600116, 38679388, 215952307, 9729502, 56505125, 14260960, 8161232, 22255654, 19506790, 50393960, 18839785, 382267114, 22330739, 15506669, 1536791610, 243381107, 79923701, 21982720, 3260518932, 14225267, 30973]
+
+[818910970567344128, 820354372827758592, 30882524, 15764644, 14377605, 346197350, 2922928743, 325830217, 'BarackObama', 939091, 20072179, 27230268, 27058591]
+------------------------------------------------
+------------------------------------------------
+
+ Number of instances per class found:
+_______________________________________
+
+Instances for positive class:		277
+
+Instances for negative class:		44
+
+Instances for misclassified class:	79
+
+Overall Testing Accuracy = 	0.8025
+
+
+********Example from each class********
+
+
+TOP POSITIVE TEST DOCUMENTS:
+________________________________
+
+truth=1 predicted=1 proba=0.998347
+When someone shares their story, we see the world through their eyes. I’m looking forward to hearing a few from lea… https://t.co/4ZM6S85yuU
+
+truth=1 predicted=1 proba=0.997482
+Happy Thanksgiving everyone. I’m grateful for my family, friends and loved ones. BUT I’m extra grateful to the fire… https://t.co/FNk0uS2xSH
+
+truth=1 predicted=1 proba=0.997284
+Thank you SO MUCH 😊 to our UK and Australian fans for making “Shallow” from #AStarIsBorn #1!!!! We are so blessed a… https://t.co/mqET8c8iKV
+
+truth=1 predicted=1 proba=0.997064
+Tonight on the show: @armiehammer is here, @AJemaineClement stops by, and a performance from @ScHoolboyQ! #FallonTonight
+
+truth=1 predicted=1 proba=0.997042
+Congrats to you both and the team - great to see the long term focus and the milestone! https://t.co/tgM1Pf1pOz
+
+
+
+TOP NEGATIVE TEST DOCUMENTS:
+________________________________
+
+truth=0 predicted=0 proba=0.973930
+America has lost a patriot and humble servant in George Herbert Walker Bush. While our hearts are heavy today, they… https://t.co/2Gn7sGTG90
+
+truth=0 predicted=0 proba=0.956850
+'Fake News!': Trump Weirdly Attacks Claim That He Called a Reporter After He Called the Reporter https://t.co/eBQKZJgoXq
+
+truth=0 predicted=0 proba=0.945771
+@Hal_RTFLC Indeed it has but cleaning up the the little petals after they start falling is a major pain in the ass
+
+truth=0 predicted=0 proba=0.941644
+No jump shots. No ferns. No memes. Not this time. I’m going to give it to you straight: If you need health insuranc… https://t.co/rThqk0VTXA
+
+truth=0 predicted=0 proba=0.934834
+I hope you’re having a blast at #Coachella. Let me know if you run into Rico Nasty. https://t.co/ztnmsst4tC
+
+
+
+TOP MISCLASSIFIED TEST DOCUMENTS:
+_____________________________________
+
+truth=0 predicted=1 proba=0.996986
+Ok so I had to step away from the game for a minute to collect myself and now I’m in the middle of Chapter X and th… https://t.co/K2ERVRrmHs
+
+truth=0 predicted=1 proba=0.994520
+I got stung by a bee on my eyelid minutes before going to Woodstock '94. I couldn’t see out of my right eye all weekend. #MyBadLuck
+
+truth=0 predicted=1 proba=0.969071
+People seem to believe that I should have this wooden digital clock. Hmm.  The wood of yore mixed with the tech of… https://t.co/o57ltwkEA8
+
+truth=0 predicted=1 proba=0.947956
+The stories and images of families being separated at the border are gut-wrenching. Urging our government to work t… https://t.co/LW2uAXVJEV
+
+truth=0 predicted=1 proba=0.945741
+Halloween is everyday for me I’m taking the night off. Ladies and Gentlemen.... The Chia Pets!!!!! 😂🌳🌳🌳… https://t.co/O8wLtMLT4d
+
+------------------------------------------------
