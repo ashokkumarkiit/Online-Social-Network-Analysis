@@ -14,17 +14,10 @@ import xlsxwriter
 
 
 #First Acc
-consumer_key = '7DXeFhtbVZD03as0CcDV21wlO'
-consumer_secret = 'Q2P6veXKWQsp8ZycvnLCqrcx2rPUOgQ0BbSkvkeyExeqsrHwTG'
-access_token = '724196648331530241-jiTT8Skq9GHlwKSPWpQGuNBo77vt89c'
-access_token_secret = '9wQrdJ5IliMUzdLQer4wEmiTMCUFTHdMwyIwFVb40s0G4'
-'''
-
-#2nd Acc
-consumer_key = 'x9hodJQTQErWnOnKv66PFTqKv'
-consumer_secret = 'lkvdHIaUnvYr90gySUJZOj4NNhiHNmCCyWQ1xpE061USJvUknE'
-access_token = '155951719-zfuC0is9UyVUjZUeBU8ECvfYGdiR93b6F8V9YXh9'
-access_token_secret = 'IJoqHINaCt5HtsDf4QU3bKuhDxzVUwfAKzVecEDGAqIno'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 '''
 
 def get_twitter():
@@ -187,7 +180,7 @@ def count_friends(users):
     friendsList = []
     for user in users:
         friendsList += sorted(user['friends'])
-    c = Counter(sorted(friendsList))      
+    c = Counter(sorted(friendsList))
     return c
 
 def save_users_details_to_file(users, path):
@@ -228,7 +221,7 @@ def create_graph(users, friend_counts):
             if(c[friend_counts.get(user['screen_name'])[cnt]] > 1):
                 graph.add_node(friend_counts.get(user['screen_name'])[cnt])
                 graph.add_edge(user['screen_name'],friend_counts.get(user['screen_name'])[cnt])
-                
+
     return graph
 
 def draw_network(graph, users, filename):
@@ -248,7 +241,7 @@ def draw_network(graph, users, filename):
         labels[user['screen_name']] = user['screen_name']
     pos = nx.spring_layout(graph)
     plt.gcf()
-    plt.figure(3,figsize=(12,12)) 
+    plt.figure(3,figsize=(12,12))
     plt.axis('off')
     nx.draw_networkx_nodes(graph,pos,alpha=0.6,node_size=50,labels=True)
     nx.draw_networkx_edges(graph,pos,alpha=0.7,width=0.1)
@@ -257,8 +250,8 @@ def draw_network(graph, users, filename):
 
 
 def fetch_tweets(twitter, users, path):
-    """ 
-    This method is used for fetching tweets for the available users. 
+    """
+    This method is used for fetching tweets for the available users.
     Restriction for fetching tweets is 100 tweets per user.
 
     Args:
@@ -280,17 +273,17 @@ def fetch_tweets(twitter, users, path):
         tweets_data += response
         tweets_collection_by_users[user['screen_name']] = tweets_data[:50]
         tweets_collection_for_testing_by_user[user['screen_name']] = tweets_data[50:100]
-        
+
         json.dump(tweets_collection_by_users[user['screen_name']], open(path + 'train/' + user['screen_name'] + '_tweets.txt', 'w'))
         pickle.dump(tweets_collection_by_users, open(path + 'train/' + 'tweets.pkl','wb'))
-        
+
         json.dump(tweets_collection_for_testing_by_user[user['screen_name']], open(path + 'test/' + user['screen_name'] + '_tweets.txt', 'w'))
         pickle.dump(tweets_collection_for_testing_by_user, open(path +  'test/' + 'tweets.pkl','wb'))
     return tweets_collection_by_users,tweets_collection_for_testing_by_user
 
 
 def write_tweets_to_excel(tweets,users,path):
-    """ 
+    """
     This method is used for saving fetched tweets to excel files
 
     Args:
@@ -350,7 +343,7 @@ def main():
 
     print("Saving Training and Testing data to excel file")
     write_tweets_to_excel(tweets_train, users, './tweets/train/')
-    write_tweets_to_excel(tweets_test, users, './tweets/test/')     
+    write_tweets_to_excel(tweets_test, users, './tweets/test/')
 
 if __name__ == "__main__":
     main()
